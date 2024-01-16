@@ -1,0 +1,40 @@
+<div class="container my-3">
+    <a routerLink="/admin/post/create" class="btn btn-primary btn-sm mb3">Create</a>
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let product of products">
+            <div class="card">
+                <img src="{{product.image}}" class="card-img-top my_image">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <a [routerLink]="['detail',product.cat_id]" class="btn btn-primary btn-sm">Detail</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-md-4 mx-auto mb-3">
+        <div class="row no-gutter d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Previous" (click)="reload(-1)" style="cursor: pointer">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li *ngIf="page > 1" class="page-item"><a class="page-link" href="#">{{ page - 1 }}</a></li>
+                    <li class="page-item"><a class="page-link" href="#">{{ page }}</a></li>
+                    <li *ngIf="page < pages" class="page-item"><a class="page-link" href="#">{{ page + 1 }}</a></li>
+                    <li *ngIf="page !== 44" class="page-item"><a class="page-link" href="#"> .... </a></li>
+                    <li class="page-item"><a class="page-link" href="#">{{ pages }}</a></li>
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Next" (click)="reload(1)" style="cursor: pointer">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

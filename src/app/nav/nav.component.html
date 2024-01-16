@@ -1,0 +1,56 @@
+<div class="container-fluid bg-dark ">
+    <nav class="container navbar navbar-expand-lg bg-body-dark ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../assets/imgs/coder.png" alt="" width="30" height="30" class="rounded">
+                <span class="text-white ms-3">Brighter Myanmar</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" routerLink="cart/detail">
+                            <i class="fa fa-cart-shopping"></i>
+                            <span class="badge rounded-pill text-bg-primary my-badge">{{cartCount}}</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" routerLink="history"> Order History
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Member
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" *ngIf="isAuth" (click)="logoutUser()">Logout</a></li>
+                            <li><a class="dropdown-item" routerLink="auth" *ngIf="!isAuth">Login</a></li>
+                            <li><a class="dropdown-item" routerLink="auth/register" *ngIf="!isAuth">Register</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown" *ngIf="isAuth">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/admin/gallery">Gallery</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin/post/all">Post</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin">Home</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

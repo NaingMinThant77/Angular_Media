@@ -1,0 +1,37 @@
+<div class="container my-5">
+    <h1 class="text-center text-info mb-3">Register To A Member</h1>
+    <div class="col-md-6 offset-md-2 mx-auto">
+        <form class="shadow p-4" [formGroup]="form" (ngSubmit)="startRegister(form.value)">
+            <div class="mb-3">
+                <label for="name" class="form-label">Password</label>
+                <input type="name" class="form-control" id="name" name="name" formControlName="name" autocomplete="off">
+                <div id="nameRequiredHelp" class="form-text text-danger" *ngIf="form.get('name').hasError('required')">
+                    Name required.</div>
+                <div id="nameHelp" class="form-text text-danger" *ngIf="form.get('name').hasError('minlength')">
+                    Name must be at least 4 characters.</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                <div id="emailRequiredHelp" class="form-text text-danger"
+                    *ngIf="form.get('email').hasError('required')">Email required.</div>
+                <!-- naingminthantmarcomdy@gmail. -->
+                <div id="emailHelp" class="form-text text-danger" *ngIf="form.get('email').hasError('email')">
+                    Supply valid Email.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" formControlName="password">
+                <div id="passwordRequiredHelp" class="form-text text-danger"
+                    *ngIf="form.get('password').hasError('required')">
+                    Password required.</div>
+                <div id="passwordHelp" class="form-text text-danger" *ngIf="form.get('password').hasError('minlength')">
+                    Password must be at least 6 characters.</div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a routerLink="/auth" class="text-muted">Already member! Please login here! </a>
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container my-5">
+    <!--History Start-->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hs of his;">
+                <td>dd</td>
+                <td>{{hs.uid}}</td>
+                <td>Otto</td>
+                <td><a [routerLink]="['detail',hs._id]" class="btn btn-primary btn-sm text-white">Detail <i
+                            class="fa fa-eye"></i></a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!--History End-->
+</div>
